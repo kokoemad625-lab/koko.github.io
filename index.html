@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>أبانوب & أمل</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal&family=Amiri&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(270deg,#ff0080,#7928ca,#2afadf,#ffcc00);
+    background-size: 800% 800%;
+    animation: bgMove 15s ease infinite;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* animated gradient */
+@keyframes bgMove {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+}
+
+.title { font-family: 'Aref Ruqaa'; }
+.verse { font-family: 'Amiri'; }
+
+/* glow */
+.glow {
+    text-shadow: 0 0 10px #fff,0 0 20px #ff0,0 0 30px #ff00ff;
+}
+
+/* floating */
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-20px);}
+}
+
+/* confetti */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: red;
+    top: -10px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* fade */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Intro -->
+<div id="intro" class="fixed inset-0 bg-black flex flex-col justify-center items-center z-50">
+<h1 class="text-3xl mb-6 glow">🎉 دعوة زفاف 🎉</h1>
+<button onclick="start()" class="bg-yellow-400 text-black px-6 py-3 rounded-full text-lg">
+ابدأ الفرح
+</button>
+</div>
+
+<!-- Music -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7f9d4dbe0b.mp3">
+</audio>
+
+<!-- HEADER -->
+<section class="text-center py-12 fade-up">
+<i class="fas fa-cross text-yellow-300 text-5xl mb-4 glow"></i>
+
+<p class="verse text-xl">
+«فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»
+</p>
+</section>
+
+<!-- IMAGE -->
+<section class="flex justify-center fade-up">
+<img src="1000538087.jpg"
+class="w-72 rounded-full border-4 border-white shadow-[0_0_50px_white] animate-[float_4s_ease-in-out_infinite]">
+</section>
+
+<!-- NAMES -->
+<section class="text-center mt-8 fade-up">
+<h1 class="title text-6xl glow">أبانوب & أمل</h1>
+<p class="mt-2 text-lg">27 مايو 2026</p>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="text-center mt-12 fade-up">
+<div id="countdown" class="flex justify-center gap-4 flex-wrap text-black">
+
+<div class="bg-white p-4 rounded-xl shadow-xl"><span id="d"></span><br>يوم</div>
+<div class="bg-white p-4 rounded-xl shadow-xl"><span id="h"></span><br>ساعة</div>
+<div class="bg-white p-4 rounded-xl shadow-xl"><span id="m"></span><br>دقيقة</div>
+<div class="bg-white p-4 rounded-xl shadow-xl"><span id="s"></span><br>ثانية</div>
+
+</div>
+
+<p id="done" class="hidden mt-6 text-xl glow">🎊 بدأ الفرح! 🎊</p>
+</section>
+
+<!-- DETAILS -->
+<section class="grid md:grid-cols-2 gap-6 mt-12 px-6 fade-up">
+
+<div class="bg-white/20 backdrop-blur p-6 rounded-xl hover:scale-105 transition">
+<h3 class="text-yellow-300 text-xl mb-2">
+<i class="fas fa-church"></i> الإكليل
+</h3>
+<p>7:00 مساءً</p>
+<p>كنيسة مارمينا بالغردقة</p>
+</div>
+
+<div class="bg-white/20 backdrop-blur p-6 rounded-xl hover:scale-105 transition">
+<h3 class="text-yellow-300 text-xl mb-2">
+<i class="fas fa-glass-cheers"></i> الحفل
+</h3>
+<p>8:00 مساءً</p>
+<p>قاعة LA ROSEE</p>
+</div>
+
+</section>
+
+<!-- RSVP -->
+<section class="text-center mt-12 fade-up">
+<button onclick="rsvp()" class="bg-yellow-400 text-black px-6 py-3 rounded-full text-lg hover:scale-110 transition">
+🎉 تأكيد الحضور 🎉
+</button>
+</section>
+
+<!-- MAP -->
+<section class="text-center mt-10 fade-up">
+<a href="https://www.google.com/maps?q=7QGM+32"
+class="bg-white text-black px-6 py-3 rounded-full">
+📍 الموقع
+</a>
+</section>
+
+<script>
+// start
+function start(){
+document.getElementById("intro").style.display="none";
+document.getElementById("music").play();
+createConfetti();
+}
+
+// confetti
+function createConfetti(){
+for(let i=0;i<80;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"%";
+c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+c.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(c);
+}
+}
+
+// countdown
+let target=new Date("May 27, 2026 19:00:00").getTime();
+
+setInterval(()=>{
+let now=new Date().getTime();
+let diff=target-now;
+
+if(diff<=0){
+document.getElementById("countdown").style.display="none";
+document.getElementById("done").classList.remove("hidden");
+return;
+}
+
+d.innerHTML=Math.floor(diff/(1000*60*60*24));
+h.innerHTML=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+m.innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
+s.innerHTML=Math.floor((diff%(1000*60))/1000);
+
+},1000);
+
+// scroll
+const els=document.querySelectorAll(".fade-up");
+window.addEventListener("scroll",()=>{
+els.forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-50){
+el.classList.add("show");
+}
+});
+});
+</script>
+
+</body>
+</html>
