@@ -8,182 +8,197 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal&family=Amiri&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&family=Amiri&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 body{
-font-family:'Tajawal',sans-serif;
-background:linear-gradient(270deg,#ff0080,#7928ca,#2afadf,#ffcc00);
-background-size:800% 800%;
-animation:bgMove 15s ease infinite;
-color:white;
-overflow-x:hidden;
+  font-family:'Tajawal',sans-serif;
+  background:#fff7f0;
+  color:#4b2e2e;
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+/* إطار الصفحة */
+.page-frame{
+  border:8px solid #d4af37;
+  margin:10px;
+  border-radius:20px;
+  padding:10px;
 }
 
+/* خلفية ورد خفيفة */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/flowers.png");
+  opacity:0.05;
+  z-index:-1;
+}
+
+/* خطوط */
 .title{font-family:'Aref Ruqaa';}
 .verse{font-family:'Amiri';}
 
+/* توهج ناعم */
 .glow{
-text-shadow:0 0 10px #fff,0 0 20px #ff0,0 0 30px #ff00ff;
+  text-shadow:0 0 8px rgba(212,175,55,0.5);
 }
 
-#intro{
-position:fixed;
-inset:0;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:999;
+/* إطار الصورة */
+.img-frame{
+  border:5px solid #d4af37;
+  padding:6px;
+  border-radius:9999px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
+/* خط فاصل مزخرف */
+.divider{
+  width:120px;
+  height:2px;
+  background:#d4af37;
+  margin:20px auto;
 }
 
-.confetti{
-position:fixed;
-width:8px;
-height:8px;
-top:-10px;
-animation:fall linear infinite;
+/* كروت */
+.card{
+  background:white;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-@keyframes fall{
-to{transform:translateY(100vh) rotate(360deg);}
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
+/* زر */
+.btn-gold{
+  background:#d4af37;
+  color:black;
+  border-radius:9999px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- intro -->
-<div id="intro">
-<h1 class="text-3xl mb-6 glow">🎉 دعوة زفاف 🎉</h1>
-<button onclick="start()" class="bg-yellow-400 text-black px-6 py-3 rounded-full text-lg">
-ابدأ
-</button>
-</div>
-
-<!-- music -->
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7f9d4dbe0b.mp3">
-</audio>
-
-<canvas id="stars"></canvas>
+<div class="page-frame">
 
 <!-- HEADER -->
-<section class="text-center py-10">
-<i class="fas fa-cross text-yellow-300 text-4xl mb-4 glow"></i>
-<p class="verse text-lg">
-«فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»
-</p>
+<section class="text-center py-10 px-4">
+  <i class="fas fa-cross text-[#d4af37] text-4xl mb-4"></i>
+
+  <p class="verse text-lg">
+    «فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»
+  </p>
 </section>
 
+<div class="divider"></div>
+
 <!-- IMAGE -->
-<section class="flex justify-center">
-<img src="1000538087.jpg.JPG"
-class="w-72 rounded-full border-4 border-white shadow-xl animate-[float_4s_ease-in-out_infinite]">
+<section class="flex justify-center mt-6">
+  <div class="img-frame">
+    <img src="1000538087.jpg.JPG" class="w-72 rounded-full">
+  </div>
 </section>
 
 <!-- NAMES -->
-<section class="text-center mt-6">
-<h1 class="title text-5xl glow">أبانوب & أمل</h1>
-<p>الأربعاء، 27 مايو 2026</p>
+<section class="text-center mt-6 px-4">
+  <h1 class="title text-5xl text-[#7a5c2e] glow">أبانوب & أمل</h1>
+  <p class="mt-2">الأربعاء، 27 مايو 2026</p>
 </section>
 
-<!-- COUNTDOWN -->
-<section class="text-center mt-10">
-<div id="countdown" class="flex justify-center gap-3 flex-wrap text-black">
+<div class="divider"></div>
 
-<div class="bg-white p-4 rounded-xl"><span id="d"></span><br>يوم</div>
-<div class="bg-white p-4 rounded-xl"><span id="h"></span><br>ساعة</div>
-<div class="bg-white p-4 rounded-xl"><span id="m"></span><br>دقيقة</div>
-<div class="bg-white p-4 rounded-xl"><span id="s"></span><br>ثانية</div>
+<!-- COUNTDOWN -->
+<section class="text-center mt-10 px-4">
+
+<div id="countdown" class="flex justify-center gap-3 flex-wrap">
+
+<div class="card p-4"><span id="d"></span><p>يوم</p></div>
+<div class="card p-4"><span id="h"></span><p>ساعة</p></div>
+<div class="card p-4"><span id="m"></span><p>دقيقة</p></div>
+<div class="card p-4"><span id="s"></span><p>ثانية</p></div>
 
 </div>
 
-<p id="done" class="hidden mt-6 text-xl glow">🎊 بدأ الفرح 🎊</p>
+<p id="done" class="hidden mt-6 glow text-xl">🎉 دقت أجراس الفرح 🎉</p>
+
 </section>
+
+<div class="divider"></div>
 
 <!-- DETAILS -->
 <section class="grid md:grid-cols-2 gap-6 mt-10 px-6">
 
-<div class="bg-white/20 p-6 rounded-xl">
-<h3 class="text-yellow-300 text-lg mb-2">
-<i class="fas fa-church"></i> مراسم الإكليل
-</h3>
+<div class="card p-6">
+<h3 class="text-[#d4af37]"><i class="fas fa-church"></i> الإكليل</h3>
 <p>7:00 مساءً</p>
-<p>كنيسة الشهيد العظيم مارمينا بالغردقة</p>
+<p>كنيسة مارمينا بالغردقة</p>
 </div>
 
-<div class="bg-white/20 p-6 rounded-xl">
-<h3 class="text-yellow-300 text-lg mb-2">
-<i class="fas fa-glass-cheers"></i> حفل الزفاف
-</h3>
+<div class="card p-6">
+<h3 class="text-[#d4af37]"><i class="fas fa-glass-cheers"></i> الحفل</h3>
 <p>8:00 مساءً</p>
-<p>قاعة LA ROSEE في الأحياء قبل كلية التربية بالغردقة</p>
+<p>قاعة LA ROSEE</p>
 </div>
 
 </section>
+
+<div class="divider"></div>
 
 <!-- MAP -->
 <section class="text-center mt-10">
-<a href="https://www.google.com/maps/search/?api=1&query=7QGM%2B32%2C+Hurghada"
-target="_blank"
-class="bg-white text-black px-6 py-3 rounded-full inline-block">
-📍 فتح الموقع
+<a href="https://www.google.com/maps/search/?api=1&query=7QGM%2B32"
+class="btn-gold px-6 py-3 inline-block">
+📍 الموقع
 </a>
 </section>
 
+<div class="divider"></div>
+
 <!-- RSVP -->
-<section class="text-center mt-10">
-<h2 class="text-xl mb-4 glow">تأكيد الحضور</h2>
+<section class="text-center mt-10 px-6">
 
+<h2 class="text-xl glow mb-4">تأكيد الحضور</h2>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9YAjTBVfGrpXa085Ra6YtFJdBZXwJQc0xaWsyaHR4EzeigQ/viewform?usp=dialog"
-width="100%" height="500" class="rounded-xl bg-white"></iframe>
+<form id="rsvpForm" class="max-w-md mx-auto card p-6">
+
+<input name="name" placeholder="الاسم" class="w-full mb-3 p-3 border rounded">
+<select name="guests" class="w-full mb-3 p-3 border rounded">
+<option>عدد الحضور</option>
+<option>فرد</option>
+<option>فردين</option>
+<option>أكثر</option>
+</select>
+
+<select name="attendance" class="w-full mb-3 p-3 border rounded">
+<option>هل ستحضر؟</option>
+<option>نعم</option>
+<option>لا</option>
+</select>
+
+<button class="btn-gold px-6 py-3 w-full">تأكيد</button>
+
+</form>
+
+<p id="msg" class="mt-4 glow hidden"></p>
 
 </section>
 
+</div>
+
 <script>
-// start
-function start(){
-document.getElementById("intro").style.display="none";
-document.getElementById("music").play();
-confetti();
-}
+const scriptURL="PUT_YOUR_SCRIPT_LINK_HERE";
 
-// confetti
-function confetti(){
-for(let i=0;i<80;i++){
-let c=document.createElement("div");
-c.className="confetti";
-c.style.left=Math.random()*100+"%";
-c.style.background=`hsl(${Math.random()*360},100%,50%)`;
-c.style.animationDuration=(Math.random()*3+2)+"s";
-document.body.appendChild(c);
-}
-}
+document.getElementById("rsvpForm").addEventListener("submit",function(e){
+e.preventDefault();
+fetch(scriptURL,{method:"POST",body:new FormData(this)})
+.then(()=>{
+msg.innerText="تم تسجيلك 🎉";
+msg.classList.remove("hidden");
+this.reset();
+});
+});
 
-// countdown
 let target=new Date("May 27, 2026 19:00:00").getTime();
 
 setInterval(()=>{
@@ -191,8 +206,8 @@ let now=new Date().getTime();
 let diff=target-now;
 
 if(diff<=0){
-document.getElementById("countdown").style.display="none";
-document.getElementById("done").classList.remove("hidden");
+countdown.style.display="none";
+done.classList.remove("hidden");
 return;
 }
 
@@ -202,36 +217,6 @@ m.innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
 s.innerHTML=Math.floor((diff%(1000*60))/1000);
 
 },1000);
-
-// stars
-const canvas=document.getElementById("stars");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let stars=Array(120).fill().map(()=>({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2
-}));
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="white";
-
-stars.forEach(s=>{
-ctx.beginPath();
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-ctx.fill();
-
-s.y+=0.3;
-if(s.y>canvas.height)s.y=0;
-});
-
-requestAnimationFrame(draw);
-}
-draw();
 </script>
 
 </body>
