@@ -3,15 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>أبانوب & أمل</title>
 
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&family=Amiri&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -21,7 +19,6 @@ body{
   color:#4b2e2e;
 }
 
-/* إطار الصفحة */
 .page-frame{
   border:8px solid #d4af37;
   margin:10px;
@@ -29,7 +26,6 @@ body{
   padding:10px;
 }
 
-/* خلفية ورود خفيفة */
 body::before{
   content:"";
   position:fixed;
@@ -39,14 +35,11 @@ body::before{
   z-index:-1;
 }
 
-/* خطوط */
-.title{font-family:'Aref Ruqaa', serif;}
-.verse{font-family:'Amiri', serif;}
+.title{font-family:'Aref Ruqaa';}
+.verse{font-family:'Amiri';}
 
-/* توهج ذهبي ناعم */
 .glow{ text-shadow:0 0 8px rgba(212,175,55,0.5); }
 
-/* إطار الصورة */
 .img-frame{
   border:5px solid #d4af37;
   padding:6px;
@@ -54,7 +47,6 @@ body::before{
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* فاصل مزخرف */
 .divider{
   width:120px;
   height:2px;
@@ -62,38 +54,22 @@ body::before{
   margin:20px auto;
 }
 
-/* كروت */
 .card{
   background:#fff;
   border-radius:16px;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* زر */
 .btn-gold{
   background:#d4af37;
   color:#000;
   border-radius:9999px;
 }
 
-/* زخارف ثابتة */
 .decor{
   position:absolute;
   font-size:22px;
   opacity:0.25;
-}
-
-/* Watermark */
-.watermark{
-  position:fixed;
-  bottom:10px;
-  left:10px;
-  opacity:0.18;
-  font-size:13px;
-  color:#000;
-  pointer-events:none;
-  z-index:999;
-  line-height:1.4;
 }
 </style>
 </head>
@@ -109,58 +85,43 @@ body::before{
 <div class="page-frame">
 
 <!-- HEADER -->
-<section class="text-center py-10 px-4">
-  <i class="fas fa-cross text-[#d4af37] text-4xl mb-4"></i>
-  <p class="verse text-lg leading-relaxed">
-    «فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»<br>
-    (متى ١٩: ٦)
-  </p>
+<section class="text-center py-10">
+<i class="fas fa-cross text-[#d4af37] text-4xl mb-4"></i>
+
+<p class="verse text-lg">
+«فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»
+</p>
 </section>
 
 <div class="divider"></div>
 
 <!-- IMAGE -->
 <section class="flex justify-center mt-6">
-  <div class="img-frame">
-    <img src="1000538087.jpg.JPG" class="w-72 rounded-full" alt="العروسين">
-  </div>
+<div class="img-frame">
+<img src="1000538087.jpg.JPG" class="w-72 rounded-full">
+</div>
 </section>
 
 <!-- NAMES -->
-<section class="text-center mt-6 px-4">
-  <h1 class="title text-5xl text-[#7a5c2e] glow">أبانوب & أمل</h1>
-  <p class="mt-2 text-lg">الأربعاء، 27 مايو 2026</p>
+<section class="text-center mt-6">
+<h1 class="title text-5xl glow text-[#7a5c2e]">أبانوب & أمل</h1>
+<p>الأربعاء، 27 مايو 2026</p>
 </section>
 
 <div class="divider"></div>
 
 <!-- COUNTDOWN -->
-<section class="text-center mt-10 px-4">
-  <div id="countdown" class="flex justify-center gap-3 flex-wrap">
+<section class="text-center mt-10">
+<div id="countdown" class="flex justify-center gap-3 flex-wrap">
 
-    <div class="card p-4">
-      <span id="d" class="text-2xl font-bold"></span>
-      <p>يوم</p>
-    </div>
+<div class="card p-4"><span id="d"></span><p>يوم</p></div>
+<div class="card p-4"><span id="h"></span><p>ساعة</p></div>
+<div class="card p-4"><span id="m"></span><p>دقيقة</p></div>
+<div class="card p-4"><span id="s"></span><p>ثانية</p></div>
 
-    <div class="card p-4">
-      <span id="h" class="text-2xl font-bold"></span>
-      <p>ساعة</p>
-    </div>
+</div>
 
-    <div class="card p-4">
-      <span id="m" class="text-2xl font-bold"></span>
-      <p>دقيقة</p>
-    </div>
-
-    <div class="card p-4">
-      <span id="s" class="text-2xl font-bold"></span>
-      <p>ثانية</p>
-    </div>
-
-  </div>
-
-  <p id="done" class="hidden mt-6 text-xl glow">🎉 دقت أجراس الفرح 🎉</p>
+<p id="done" class="hidden mt-6 glow text-xl">🎉 دقت أجراس الفرح 🎉</p>
 </section>
 
 <div class="divider"></div>
@@ -168,134 +129,102 @@ body::before{
 <!-- DETAILS -->
 <section class="grid md:grid-cols-2 gap-6 mt-10 px-6">
 
-  <div class="card p-6">
-    <h3 class="text-[#d4af37] text-lg mb-2">
-      <i class="fas fa-church ml-2"></i> مراسم الإكليل
-    </h3>
-    <p>الساعة 7:00 مساءً</p>
-    <p>كنيسة الشهيد العظيم مارمينا بالغردقة</p>
-  </div>
+<div class="card p-6">
+<h3 class="text-[#d4af37]"><i class="fas fa-church"></i> الإكليل</h3>
+<p>7:00 مساءً</p>
+<p>كنيسة مارمينا بالغردقة</p>
+</div>
 
-  <div class="card p-6">
-    <h3 class="text-[#d4af37] text-lg mb-2">
-      <i class="fas fa-glass-cheers ml-2"></i> حفل الزفاف
-    </h3>
-    <p>الساعة 8:00 مساءً</p>
-    <p>قاعة LA ROSEE في الأحياء قبل كلية التربية بالغردقة</p>
-  </div>
+<div class="card p-6">
+<h3 class="text-[#d4af37]"><i class="fas fa-glass-cheers"></i> الحفل</h3>
+<p>8:00 مساءً</p>
+<p>قاعة LA ROSEE</p>
+</div>
 
 </section>
 
 <div class="divider"></div>
 
 <!-- MAP -->
-<section class="text-center mt-10 px-4">
-  <a href="https://www.google.com/maps/search/?api=1&query=7QGM%2B32%2C+Hurghada"
-     target="_blank"
-     class="btn-gold px-6 py-3 inline-block text-lg shadow">
-    <i class="fas fa-map-marker-alt ml-2"></i>
-    افتح الموقع
-  </a>
+<section class="text-center mt-10">
+<a href="https://www.google.com/maps/search/?api=1&query=7QGM%2B32"
+class="btn-gold px-6 py-3 inline-block">
+📍 الموقع
+</a>
 </section>
 
 <div class="divider"></div>
 
-<!-- RSVP + Counter -->
-<section class="text-center mt-12 px-6">
+<!-- RSVP -->
+<section class="text-center mt-10 px-6">
 
-<h2 class="text-2xl mb-4 glow">تأكيد الحضور</h2>
-
-<div class="mb-4">
-  <p>عدد المسجلين:</p>
-  <p id="count" class="text-3xl text-[#d4af37]">0</p>
-</div>
+<h2 class="text-xl glow mb-4">تأكيد الحضور</h2>
 
 <form id="rsvpForm" class="max-w-md mx-auto card p-6">
 
-<input type="text" name="name" placeholder="الاسم بالكامل"
-class="w-full mb-4 p-3 rounded-lg border" required>
-
-<select name="guests" class="w-full mb-4 p-3 rounded-lg border" required>
-<option value="">عدد الحضور</option>
+<input name="name" placeholder="الاسم" class="w-full mb-3 p-3 border rounded">
+<select name="guests" class="w-full mb-3 p-3 border rounded">
+<option>عدد الحضور</option>
 <option>فرد</option>
 <option>فردين</option>
 <option>أكثر</option>
 </select>
 
-<select name="attendance" class="w-full mb-4 p-3 rounded-lg border" required>
-<option value="">هل ستحضر؟</option>
+<select name="attendance" class="w-full mb-3 p-3 border rounded">
+<option>هل ستحضر؟</option>
 <option>نعم</option>
 <option>لا</option>
 </select>
 
-<button type="submit" class="btn-gold px-6 py-3 w-full text-lg">
-🎉 تأكيد 🎉
-</button>
+<button class="btn-gold px-6 py-3 w-full">تأكيد</button>
 
 </form>
 
-<p id="msg" class="mt-4 hidden text-xl glow"></p>
+<p id="msg" class="mt-4 glow hidden"></p>
 
+</section>
+
+<!-- FOOTER -->
+<section class="text-center mt-10 pb-6">
+<p class="text-lg glow">ننتظركم تشاركونا فرحتنا 💛</p>
+
+<div class="mt-4 text-sm text-gray-600">
+تصميم: <strong>KERO</strong> <br>
+📞 01211345434
+</div>
 </section>
 
 </div>
 
-<!-- Watermark -->
-<div class="watermark">
-🤍 KERO<br>
-📞 01211345434<br>
-جمع الله بينكما في سعادة دائمة
-</div>
-
-<!-- SCRIPT -->
 <script>
-// 🔴 عدّل هنا فقط
-const scriptURL = "PUT_YOUR_SCRIPT_LINK_HERE";
+const scriptURL="PUT_YOUR_SCRIPT_LINK_HERE";
 
-// إرسال الفورم
-document.getElementById("rsvpForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  let form = new FormData(this);
-
-  fetch(scriptURL, { method:"POST", body:form })
-  .then(()=>{
-    const msg = document.getElementById("msg");
-    msg.innerText = "تم تسجيل حضورك 🎉";
-    msg.classList.remove("hidden");
-    this.reset();
-    loadCount();
-  })
-  .catch(()=>alert("حصل خطأ، تأكد من رابط السكربت"));
+document.getElementById("rsvpForm").addEventListener("submit",function(e){
+e.preventDefault();
+fetch(scriptURL,{method:"POST",body:new FormData(this)})
+.then(()=>{
+msg.innerText="تم تسجيلك 🎉";
+msg.classList.remove("hidden");
+this.reset();
+});
 });
 
-// تحميل عدد الحضور
-function loadCount(){
-  fetch(scriptURL)
-  .then(res=>res.json())
-  .then(data=>{
-    document.getElementById("count").innerText = data.count || 0;
-  })
-  .catch(()=>{});
-}
-loadCount();
-
-// Countdown
-let target = new Date("May 27, 2026 19:00:00").getTime();
+let target=new Date("May 27, 2026 19:00:00").getTime();
 
 setInterval(()=>{
-  let now = new Date().getTime();
-  let diff = target - now;
+let now=new Date().getTime();
+let diff=target-now;
 
-  if(diff<=0){
-    document.getElementById("countdown").style.display="none";
-    document.getElementById("done").classList.remove("hidden");
-    return;
-  }
+if(diff<=0){
+countdown.style.display="none";
+done.classList.remove("hidden");
+return;
+}
 
-  d.innerHTML = Math.floor(diff/(1000*60*60*24));
-  h.innerHTML = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  m.innerHTML = Math.floor((diff%(1000*60*60))/(1000*60));
-  s.innerHTML = Math.floor((diff%(1000*60))/1000);
+d.innerHTML=Math.floor(diff/(1000*60*60*24));
+h.innerHTML=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+m.innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
+s.innerHTML=Math.floor((diff%(1000*60))/1000);
 
 },1000);
 </script>
