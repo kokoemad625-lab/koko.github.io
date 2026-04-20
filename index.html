@@ -6,100 +6,31 @@
 
 <title>أبانوب & أمل</title>
 
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&family=Amiri&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body{
-  font-family:'Tajawal',sans-serif;
-  background:#fff7f0;
-  color:#4b2e2e;
-}
-
-/* إطار */
-.page-frame{
-  border:8px solid #d4af37;
-  margin:10px;
-  border-radius:20px;
-  padding:10px;
-}
-
-/* خلفية خفيفة */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("https://www.transparenttextures.com/patterns/flowers.png");
-  opacity:0.05;
-  z-index:-1;
-}
-
-/* خطوط */
+body{font-family:'Tajawal',sans-serif;background:#fff7f0;color:#4b2e2e;}
+.page-frame{border:8px solid #d4af37;margin:10px;border-radius:20px;padding:10px;}
+body::before{content:"";position:fixed;inset:0;background:url("https://www.transparenttextures.com/patterns/flowers.png");opacity:0.05;z-index:-1;}
 .title{font-family:'Aref Ruqaa';}
 .verse{font-family:'Amiri';}
-
-/* توهج */
-.glow{ text-shadow:0 0 8px rgba(212,175,55,0.5); }
-
-/* صورة */
-.img-frame{
-  border:5px solid #d4af37;
-  padding:6px;
-  border-radius:9999px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-/* فواصل */
-.divider{
-  width:120px;
-  height:2px;
-  background:#d4af37;
-  margin:20px auto;
-}
-
-/* كروت */
-.card{
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* زر */
-.btn-gold{
-  background:#d4af37;
-  color:#000;
-  border-radius:9999px;
-}
-
-/* زينة */
-.decor{
-  position:absolute;
-  font-size:22px;
-  opacity:0.25;
-}
-
-/* أنيميشن خفيف */
-.fade-up{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 1s ease;
-}
-.fade-up.show{
-  opacity:1;
-  transform:translateY(0);
-}
+.glow{text-shadow:0 0 8px rgba(212,175,55,0.5);}
+.img-frame{border:5px solid #d4af37;padding:6px;border-radius:9999px;box-shadow:0 10px 30px rgba(0,0,0,0.08);}
+.divider{width:120px;height:2px;background:#d4af37;margin:20px auto;}
+.card{background:#fff;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.08);}
+.btn-gold{background:#d4af37;color:#000;border-radius:9999px;}
+.decor{position:absolute;font-size:22px;opacity:0.25;}
+.fade-up{opacity:0;transform:translateY(30px);transition:all 1s ease;}
+.fade-up.show{opacity:1;transform:translateY(0);}
 </style>
 </head>
 
 <body class="relative">
 
-<!-- زخارف -->
 <div class="decor top-5 left-5">💍</div>
 <div class="decor top-10 right-10">✨</div>
 <div class="decor bottom-10 left-10">🌸</div>
@@ -107,106 +38,79 @@ body::before{
 
 <div class="page-frame">
 
-<!-- HEADER -->
 <section class="text-center py-10 fade-up">
-  <i class="fas fa-cross text-[#d4af37] text-4xl mb-4"></i>
-  <p class="verse text-lg">
-    «فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»
-  </p>
+<i class="fas fa-cross text-[#d4af37] text-4xl mb-4"></i>
+<p class="verse text-lg">«فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»</p>
 </section>
 
 <div class="divider"></div>
 
-<!-- IMAGE -->
 <section class="flex justify-center mt-6 fade-up">
-  <div class="img-frame">
-    <img src="1000538087.jpg.JPG" class="w-72 rounded-full" alt="العروسين">
-  </div>
+<div class="img-frame">
+<img src="1000538087.jpg.JPG" class="w-72 rounded-full">
+</div>
 </section>
 
-<!-- NAMES -->
 <section class="text-center mt-6 fade-up">
-  <h1 class="title text-4xl md:text-5xl glow text-[#7a5c2e] mb-6">
-    أبانوب & أمل
-  </h1>
-  <p class="mt-2 text-lg">الأربعاء، 27 مايو 2026</p>
+<h1 class="title text-4xl md:text-5xl glow text-[#7a5c2e] mb-6">أبانوب & أمل</h1>
+<p class="mt-2 text-lg">الأربعاء، 27 مايو 2026</p>
 </section>
 
 <div class="divider"></div>
 
-<!-- COUNTDOWN -->
 <section class="text-center mt-10 fade-up">
-
 <h2 class="text-xl mb-4 glow">العد التنازلي للفرح 🎉</h2>
 
 <div id="countdown" class="flex justify-center gap-3 flex-wrap">
-
 <div class="card p-4"><span id="d"></span><p>يوم</p></div>
 <div class="card p-4"><span id="h"></span><p>ساعة</p></div>
 <div class="card p-4"><span id="m"></span><p>دقيقة</p></div>
 <div class="card p-4"><span id="s"></span><p>ثانية</p></div>
-
 </div>
 
-<p id="done" class="hidden mt-6 glow text-xl">
-🎉 دقت أجراس الفرح 🎉
-</p>
+<p id="done" class="hidden mt-6 glow text-xl">🎉 دقت أجراس الفرح 🎉</p>
 </section>
 
 <div class="divider"></div>
 
-<!-- DETAILS -->
 <section class="grid md:grid-cols-2 gap-6 mt-10 px-6 fade-up">
 
 <div class="card p-6">
-<h3 class="text-[#d4af37]">
-<i class="fas fa-church"></i> مراسم الإكليل
-</h3>
+<h3 class="text-[#d4af37]"><i class="fas fa-church"></i> مراسم الإكليل</h3>
 <p>7:00 مساءً</p>
 <p>كنيسة مارمينا بالغردقة</p>
 </div>
 
 <div class="card p-6">
-<h3 class="text-[#d4af37]">
-<i class="fas fa-glass-cheers"></i> حفل الزفاف
-</h3>
+<h3 class="text-[#d4af37]"><i class="fas fa-glass-cheers"></i> حفل الزفاف</h3>
 <p>8:00 مساءً</p>
 <p>قاعة LA ROSEE</p>
-<p class="mt-2 text-sm text-gray-600">
-📍 الأحياء قبل كلية التربية، الغردقة
-</p>
+<p class="mt-2 text-sm text-gray-600">📍 الأحياء قبل كلية التربية، الغردقة</p>
 </div>
 
 </section>
 
 <div class="divider"></div>
 
-<!-- MAP -->
 <section class="text-center mt-10 fade-up">
 <a href="https://www.google.com/maps/search/?api=1&query=7QGM%2B32"
-class="btn-gold px-6 py-3 inline-block">
-📍 الموقع
-</a>
+class="btn-gold px-6 py-3 inline-block">📍 الموقع</a>
 </section>
 
 <div class="divider"></div>
 
-<!-- FORM -->
 <section class="text-center mt-10 px-6 fade-up">
 
 <h2 class="text-xl glow mb-4">اكتب كلمة للعروسين 💌</h2>
 
 <form id="rsvpForm" class="max-w-md mx-auto card p-6">
 
-<input name="name" placeholder="اسمك"
-class="w-full mb-3 p-3 border rounded" required>
+<input name="name" placeholder="اسمك" class="w-full mb-3 p-3 border rounded" required>
 
 <textarea name="message" placeholder="اكتب كلمتك..."
 class="w-full mb-3 p-3 border rounded" required></textarea>
 
-<button class="btn-gold px-6 py-3 w-full">
-إرسال
-</button>
+<button class="btn-gold px-6 py-3 w-full">إرسال</button>
 
 </form>
 
@@ -214,7 +118,6 @@ class="w-full mb-3 p-3 border rounded" required></textarea>
 
 </section>
 
-<!-- FOOTER -->
 <section class="text-center mt-10 pb-6 fade-up">
 <p class="text-lg glow">ننتظركم تشاركونا فرحتنا 💛</p>
 
@@ -228,10 +131,9 @@ class="w-full mb-3 p-3 border rounded" required></textarea>
 
 <script>
 
-// 🔴 حط لينك Apps Script هنا
-https://script.google.com/macros/s/AKfycby0DTbXOau21fdaTXq4Ed1ayYjaFvJzFcFvZpZ7J-l4nylX_P8afgADP7iQ_8QXW0JkWA/exec
+// ✅ تم إضافة اللينك
+const scriptURL="https://script.google.com/macros/s/AKfycby0DTbXOau21fdaTXq4Ed1ayYjaFvJzFcFvZpZ7J-l4nylX_P8afgADP7iQ_8QXW0JkWA/exec";
 
-// إرسال
 document.getElementById("rsvpForm").addEventListener("submit",function(e){
 e.preventDefault();
 
@@ -248,7 +150,7 @@ this.reset();
 .catch(()=>alert("في مشكلة في الإرسال"));
 });
 
-// Countdown
+// countdown
 let target=new Date("May 27, 2026 19:00:00").getTime();
 
 setInterval(()=>{
@@ -268,7 +170,7 @@ s.innerHTML=Math.floor((diff%(1000*60))/1000);
 
 },1000);
 
-// Animation
+// animation
 const elements=document.querySelectorAll('.fade-up');
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
