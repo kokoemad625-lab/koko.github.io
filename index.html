@@ -71,12 +71,22 @@ position:absolute;
 font-size:22px;
 opacity:0.25;
 }
+
+/* animation */
+.fade-up{
+opacity:0;
+transform:translateY(30px);
+transition:all 1s ease;
+}
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
 </style>
 </head>
 
 <body class="relative">
 
-<!-- زخارف -->
 <div class="decor top-5 left-5">💍</div>
 <div class="decor top-10 right-10">✨</div>
 <div class="decor bottom-10 left-10">🌸</div>
@@ -84,44 +94,34 @@ opacity:0.25;
 
 <div class="page-frame">
 
-<!-- HEADER -->
-<section class="text-center py-10">
+<section class="text-center py-10 fade-up">
 <i class="fas fa-cross text-[#d4af37] text-4xl mb-4"></i>
-
-<p class="verse text-lg">
-«فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»
-</p>
+<p class="verse text-lg">«فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ»</p>
 </section>
 
 <div class="divider"></div>
 
-<!-- IMAGE -->
-<section class="flex justify-center mt-6">
+<section class="flex justify-center mt-6 fade-up">
 <div class="img-frame">
 <img src="1000538087.jpg.JPG" class="w-72 rounded-full">
 </div>
 </section>
 
-<!-- NAMES -->
-<section class="text-center mt-6">
+<section class="text-center mt-6 fade-up">
 <h1 class="title text-4xl md:text-5xl glow text-[#7a5c2e] mb-6">أبانوب & أمل</h1>
 <p class="mt-2 text-lg">الأربعاء، 27 مايو 2026</p>
 </section>
 
 <div class="divider"></div>
 
-<!-- COUNTDOWN -->
-<section class="text-center mt-10">
-
+<section class="text-center mt-10 fade-up">
 <h2 class="text-xl mb-4 glow">العد التنازلي للفرح 🎉</h2>
 
 <div id="countdown" class="flex justify-center gap-3 flex-wrap">
-
 <div class="card p-4"><span id="d"></span><p>يوم</p></div>
 <div class="card p-4"><span id="h"></span><p>ساعة</p></div>
 <div class="card p-4"><span id="m"></span><p>دقيقة</p></div>
 <div class="card p-4"><span id="s"></span><p>ثانية</p></div>
-
 </div>
 
 <p id="done" class="hidden mt-6 glow text-xl">🎉 دقت أجراس الفرح 🎉</p>
@@ -129,17 +129,16 @@ opacity:0.25;
 
 <div class="divider"></div>
 
-<!-- DETAILS -->
-<section class="grid md:grid-cols-2 gap-6 mt-10 px-6">
+<section class="grid md:grid-cols-2 gap-6 mt-10 px-6 fade-up">
 
 <div class="card p-6">
-<h3 class="text-[#d4af37]"><i class="fas fa-church"></i> مراسم الإكليل</h3>
+<h3 class="text-[#d4af37]"><i class="fas fa-church"></i> الإكليل</h3>
 <p>7:00 مساءً</p>
 <p>كنيسة مارمينا بالغردقة</p>
 </div>
 
 <div class="card p-6">
-<h3 class="text-[#d4af37]"><i class="fas fa-glass-cheers"></i> حفل الزفاف</h3>
+<h3 class="text-[#d4af37]"><i class="fas fa-glass-cheers"></i> الحفل</h3>
 <p>8:00 مساءً</p>
 <p>قاعة LA ROSEE</p>
 <p class="mt-2 text-sm text-gray-600">📍 الأحياء قبل كلية التربية، الغردقة</p>
@@ -149,38 +148,26 @@ opacity:0.25;
 
 <div class="divider"></div>
 
-<!-- MAP -->
-<section class="text-center mt-10">
+<section class="text-center mt-10 fade-up">
 <a href="https://www.google.com/maps/search/?api=1&query=7QGM%2B32"
-class="btn-gold px-6 py-3 inline-block">
-📍 الموقع
-</a>
+class="btn-gold px-6 py-3 inline-block">📍 الموقع</a>
 </section>
 
 <div class="divider"></div>
 
-<!-- RSVP -->
-<section class="text-center mt-10 px-6">
+<!-- FORM -->
+<section class="text-center mt-10 px-6 fade-up">
 
-<h2 class="text-xl glow mb-4">تأكيد الحضور</h2>
+<h2 class="text-xl glow mb-4">اكتب كلمة للعروسين 💌</h2>
 
 <form id="rsvpForm" class="max-w-md mx-auto card p-6">
 
-<input name="name" placeholder="الاسم" class="w-full mb-3 p-3 border rounded">
-<select name="guests" class="w-full mb-3 p-3 border rounded">
-<option>عدد الحضور</option>
-<option>فرد</option>
-<option>فردين</option>
-<option>أكثر</option>
-</select>
+<input name="name" placeholder="اسمك" class="w-full mb-3 p-3 border rounded" required>
 
-<select name="attendance" class="w-full mb-3 p-3 border rounded">
-<option>هل ستحضر؟</option>
-<option>نعم</option>
-<option>لا</option>
-</select>
+<textarea name="message" placeholder="اكتب كلمتك للعروسين..."
+class="w-full mb-3 p-3 border rounded" required></textarea>
 
-<button class="btn-gold px-6 py-3 w-full">تأكيد</button>
+<button class="btn-gold px-6 py-3 w-full">إرسال</button>
 
 </form>
 
@@ -188,8 +175,7 @@ class="btn-gold px-6 py-3 inline-block">
 
 </section>
 
-<!-- FOOTER -->
-<section class="text-center mt-10 pb-6">
+<section class="text-center mt-10 pb-6 fade-up">
 <p class="text-lg glow">ننتظركم تشاركونا فرحتنا 💛</p>
 
 <div class="mt-4 text-sm text-gray-600">
@@ -201,18 +187,20 @@ class="btn-gold px-6 py-3 inline-block">
 </div>
 
 <script>
-const scriptURL="PUT_YOUR_SCRIPT_LINK_HERE";
+// ضع هنا رابط Apps Script
+const scriptURL="https://script.google.com/macros/s/AKfycbyrTswrcrjvbRLIjxqQJqI77Y714EYXkvnOF65U9ANb2vYYfUkhwJjOiL0AwuShfMENhw/exec";
 
 document.getElementById("rsvpForm").addEventListener("submit",function(e){
 e.preventDefault();
 fetch(scriptURL,{method:"POST",body:new FormData(this)})
 .then(()=>{
-msg.innerText="تم تسجيلك 🎉";
+msg.innerText="تم إرسال رسالتك 🎉";
 msg.classList.remove("hidden");
 this.reset();
 });
 });
 
+// countdown
 let target=new Date("May 27, 2026 19:00:00").getTime();
 
 setInterval(()=>{
@@ -231,6 +219,17 @@ m.innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
 s.innerHTML=Math.floor((diff%(1000*60))/1000);
 
 },1000);
+
+// animation
+const elements=document.querySelectorAll('.fade-up');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+});
+elements.forEach(el=>observer.observe(el));
 </script>
 
 </body>
